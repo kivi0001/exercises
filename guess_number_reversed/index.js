@@ -9,6 +9,7 @@ const number = Math.ceil(Math.random() * 100);
 let firstGuess = 50;
 let low = 1;
 let high = 100;
+let guessCounter = 0;
 
 console.log(number);
 
@@ -21,7 +22,8 @@ function startGame(){
     firstGuess = 50;
     low = 1;
     high = 100;
-    guessFromGame.innerHTML = firstGuess;
+    guessCounter = 0;
+    guessFromGame.innerHTML = `Jeg gætter på ${firstGuess}!`;
 }
 
 function computerGuess (number){
@@ -31,17 +33,20 @@ function computerGuess (number){
 function guessedTooHigh(){
     high = firstGuess - 1;
     firstGuess = Math.ceil((low + high) / 2);
-    guessFromGame.innerHTML = firstGuess;
+    guessCounter++;
+    guessFromGame.innerHTML = `Hmmm... hvad så med ${firstGuess}?`;
     console.log(computerGuess(firstGuess));
 }
 
 function guessedTooLow(){
     low = firstGuess + 1;
     firstGuess = Math.ceil((low + high) / 2);
-    guessFromGame.innerHTML = firstGuess;
+    guessCounter++;
+    guessFromGame.innerHTML = `Okay, så gætter jeg på ${firstGuess}!`;
     console.log(computerGuess(firstGuess));
 }
 
 function guessedCorrect(){
-    console.log(`Yay! Korrekt gæt: ${firstGuess}`);
+    guessFromGame.innerHTML = `Wuhuu! Selvfølgelig var det ${firstGuess}! Det tog mig ${guessCounter} forsøg, men jeg vidste det selvfølgelig hele tiden.`;
+    console.log(`Yay! Korrekt gæt: ${firstGuess}, Det tog ${guessCounter} forsøg.`);
 }
