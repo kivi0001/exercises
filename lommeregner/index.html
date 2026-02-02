@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="js.js"></script>
+    <title>Lommeregner</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <h1>Lommeregner</h1>
+      <label for="tal1">Første tal</label>
+      <input type="text" name="tal1" id="tal1" />
+      <select name="input-regnetype" id="regnetype">
+        <option id="+" value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+      <label for="tal2">Andet tal</label>
+      <input type="text" name="tal2" id="tal2" />
+      <button id="ligmed">=</button>
+      <button id="clear">A/C</button>
+      <h2 id="resultat"></h2>
+    </main>
+  </body>
+</html>
