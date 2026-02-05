@@ -1,0 +1,13 @@
+ul{
+    display: flex;
+    gap: 10px;
+    list-style-type: none;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+}
+body{
+    text-align: center;
+}

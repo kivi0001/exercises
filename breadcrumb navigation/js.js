@@ -37,7 +37,7 @@ function breadcrumbs(){
         else {
             const a = document.createElement("a");
             a.href = element.link;
-            a.textContent = element.name;
+            a.textContent = (element.name + "  /");
             li.appendChild(a);
         }
 
