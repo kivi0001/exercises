@@ -1,9 +1,9 @@
-const name = "mArgREthE";
+/* const name = "mArgREthE";
 const capName = `${name.substring(0, 2).toLowerCase()}${name[2].toUpperCase()}${name.substring(3).toLowerCase()}`;
 
-console.log(capName);
+console.log(capName); */
 
-/* const name = "margrethe";
+const name = "kia margrethe vinther";
 const capName = `${name[0].toUpperCase()}${name.substring(1)}`;
 
-console.log(capName); */
+console.log(capName);
