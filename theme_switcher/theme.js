@@ -1,5 +1,5 @@
-let dropdown = document.querySelector("#theme-switcher");
-let bodyTheme = document.querySelector("#body");
+const dropdown = document.querySelector("#theme-switcher");
+const bodyTheme = document.querySelector("#body");
 
 dropdown.addEventListener("click", changeTheme);
 

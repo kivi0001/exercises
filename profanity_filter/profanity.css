@@ -1,0 +1,67 @@
+body{
+    background-color: black;
+    text-align: center;
+}
+
+p{
+    background-color: rgb(230, 243, 135);
+    margin: 5em;
+    padding: 2em 5em;
+    font-size: 24px;
+    border-radius: 20px;
+}
+
+#sfw-button{
+    background-color: rgb(52, 211, 116);
+    padding: 1em 2em;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 5px;
+    border-style: solid;
+    border-color: white;
+    border-width: 4px;
+    border-bottom-color: none;
+}
+
+#sfw-button:hover{
+    background-color: rgb(61, 223, 232);
+    color: rgb(78, 20, 20);
+    cursor: pointer;
+    border-color: rgb(240, 159, 159);
+}
+
+dialog:open{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 5em 3em 2em 3em;
+    font-style: italic;
+    font-size: 22px;
+    backdrop-filter: brightness(0.5);
+    background-color: rgb(225, 162, 206);
+
+}
+
+#dialog-luk-knap{
+    margin: 4em 0em;
+    align-self: center;
+    padding: 0.5em 2em;
+    background-color: rgb(242, 48, 126);
+        border-radius: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 2px;
+    border-style: solid;
+    border-color: white;
+    border-width: 4px;
+    border-bottom-color: none;
+}
+
+#dialog-luk-knap:hover{
+    background-color: rgb(90, 61, 147);
+    color: rgb(234, 212, 212);
+    cursor: pointer;
+    border-color: rgb(240, 159, 159);
+}
