@@ -84,6 +84,10 @@ console.log(result);
 // NY ARRAY ØVELSE
 //  konverter til array
 
+//konverter et array til en streng:
+const wordss = ["hej", "goddag", "farvel"];
+console.log(wordss.join(" "));
+
 // NUMMER 1: Array.from()
 const manyletters = Array.from("abcdefghijklmn");
 console.log(manyletters);

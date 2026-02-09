@@ -15,7 +15,9 @@ console.log(`Middlename: ${middleName}`);
 console.log(`Lastname: ${lastName}`);
 
 
-/* const name = "Kia Margrethe Vinther";
-console.log(name.indexOf(" "));
-console.log(name.lastIndexOf(" "));
- */
+// Løsning fra undervisning
+const str = "Peter Heronius Lind";
+const firstName2 = str.substring(0, str.indexOf(" "));
+const middleName2 = str.substring(str.indexOf(" "), str.lastIndexOf(" "));
+const lastName2 = str.substring(str.lastIndexOf(" "));
+ console.log(`Hans navn er ${firstName2} ${middleName2} ${lastName2}`);

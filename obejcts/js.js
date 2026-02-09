@@ -7,11 +7,11 @@ student: true
 // tilgå objekt med dot notation
 console.log(`${object.firstName} er ${object.age}`);
 
-// gætte en property/egenskab
+// get'te en property/egenskab
 let name = object.firstName;
 console.log(name); 
 
-// sætte en property/egenskab
+// set'te en property/egenskab
 object.firstName = "Tobias"
 console.log(object);
 

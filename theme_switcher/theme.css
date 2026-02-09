@@ -1,0 +1,74 @@
+[data-theme="dark"]{
+    --header-bg-color: black;
+    --body-bg-color: black;
+    --h1-color: white;
+    --h2-color: white;
+    --h3-color: white;
+    --p-color: white;
+    --label-color: white;
+}
+[data-theme="light"]{
+    --header-bg-color: white;
+    --body-bg-color: white;
+    --h1-color: black;
+    --h2-color: black;
+    --h3-color: black;
+    --p-color: black;
+    --label-color: black;
+}
+[data-theme="hawaii"]{
+    --header-bg-color: red;
+    --body-bg-color: red;
+    --h1-color: yellow;
+    --h2-color: yellow;
+    --h3-color: yellow;
+    --p-color: yellow;
+    --label-color: yellow;
+}
+
+header{
+    background-color: var(--header-bg-color);
+    display: flex;
+    justify-content: space-around;
+    padding: 2em;
+}
+
+body{
+    background-color: var(--body-bg-color);
+}
+
+main{
+    text-align: center;
+    margin-top: 10em;
+    margin-bottom: 20em;
+}
+
+h1{
+    color: var(--h1-color);
+    font-size: 22px;
+}
+
+h2{
+    font-size: 40px;
+    color: var(--h2-color);
+}
+
+h3{
+    color: var(--h3-color);
+}
+p{
+    color: var(--p-color);
+}
+
+label{
+    color: var(--label-color);
+}
+
+select{
+
+}
+
+footer{
+    padding: 5em;
+    font-style: italic;
+}
