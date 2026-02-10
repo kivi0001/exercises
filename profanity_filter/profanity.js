@@ -78,3 +78,16 @@ function safeForWork(){
         });
     }
     console.log("SFW", text); */
+
+
+    // GENNEMGANG FRA UNDERVISNING
+
+    // i html: en <form method="dialog"> i stedet for bare dialogboks.
+
+    //alternativ function i stedet for "replace all"
+/*     function safeForWork(){
+    curseWords.forEach((element) => {
+        text = text.split(element.bad).join(`<span>${element.good}</span>`);
+    });
+    document.querySelector("#paragraf").textContent = text;
+} */

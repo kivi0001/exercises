@@ -14,3 +14,25 @@ function changeTheme(){
         bodyTheme.dataset.theme = "hawaii";
     }
 }
+
+
+// GENNEMGANG/LØSNING FRA UNDERVISNING
+
+/* let theme = localStorage.getItem("theme");
+
+if (theme === null){
+    theme = "dark";
+}
+
+document.querySelector("#theme_select").addEventListener("change", theChange);
+
+function theChange(evt) {
+    setTheme(evt.target.value);
+}
+
+function setTheme(theme){
+    document.querySelector("body").dataset.theme = theme;
+    localStorage.setItem("theme", theme);
+}
+
+ */

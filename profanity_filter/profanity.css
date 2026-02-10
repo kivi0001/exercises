@@ -65,3 +65,7 @@ dialog:open{
     cursor: pointer;
     border-color: rgb(240, 159, 159);
 }
+
+span{
+    background-color: aquamarine;
+}
