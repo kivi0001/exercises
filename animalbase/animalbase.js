@@ -82,30 +82,41 @@ function isDog(animal){
 
 function selectSort(event){
     const sortBy = event.target.dataset.sort;
-    console.log(`user selected ${sortBy}`);
-    sortList(sortBy);
+    const sortDir = event.target.dataset.sortDirection;
+
+    // toggle direction
+    if (sortDir === "asc"){
+        event.target.dataset.sortDirection = "desc";
+    } else {
+        event.target.dataset.sortDirection = "asc";
+    }
+    console.log(`user selected ${sortBy} - ${sortDir}`);
+    sortList(sortBy, sortDir);
 }
 
-function sortList(sortBy){
+function sortList(sortBy, sortDir){
     let sortedList = allAnimals;
+    let direction = 1;
 
-    if (sortBy === "name"){
-        sortedList = sortedList.sort(sortByName);
+    if(sortDir === "desc"){
+        direction = -1;
+    } else {
+        direction = 1;
+    }
 
-    } else if (sortBy === "type"){
-        sortedList = sortedList.sort(sortByType);
+        sortedList = sortedList.sort(sortByProperty);
 
+
+    function sortByProperty(animalA, animalB){
+        if (animalA[sortBy] < animalB[sortBy]){
+            return -1 * direction;
+        } else {
+            return 1 * direction;
+        }
     }
     displayList(sortedList);
 }
 
-function sortByName(animalA, animalB){
-    if (animalA.name < animalB.name){
-        return -1;
-    } else {
-        return 1;
-    }
-}
 
 function sortByType(animalA, animalB){
     if (animalA.type < animalB.type){
