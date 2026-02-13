@@ -1,4 +1,3 @@
 body {
-    background-color: green;
-    cursor: auto;
+    background-color: hsl(330 var(--pointerx) var(--pointery));
 }

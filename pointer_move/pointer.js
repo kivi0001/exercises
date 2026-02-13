@@ -21,9 +21,13 @@ document.addEventListener("mousemove", colorChange);
 
 function colorChange(e) {
   const procent = e.clientX / window.innerWidth; // window.innerwidth bruges til at dividere.
-  const color = procent * 100;
+  const ratioY = e.clientY / window.innerHeight;
 
-  document.body.style.backgroundColor = `hsl(${color}, 100%, 70%)`;
+  const color = (procent * 100).toFixed(2);
+  const colorY = (ratioY * 100).toFixed(2);
+
+  console.log("percent:", color);
+  document.querySelector("body").style.setProperty("--pointerx", color);
+  document.querySelector("body").style.setProperty("--pointery", colorY);
 }
 
-console.log("ready");
