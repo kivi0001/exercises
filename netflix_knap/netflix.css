@@ -1,0 +1,40 @@
+body{
+    background-color: rgb(131, 204, 131);
+    text-align: center;
+}
+
+header{
+    margin: 5em;
+    color: rgb(6, 69, 6);
+    font-weight: bold;
+    font-size: 48px;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+div{
+    position: relative;
+    overflow: hidden;
+    background: #f3efe6;
+    width: 300px;
+    height: auto;
+}
+
+#progress-button{
+    padding: 1em 0em;
+     display: block;
+    height: 100%;
+}
+
+span{
+    background-color: royalblue;
+    animation: animation 8s linear;
+}
+
+@keyframes animation{
+    from { width: 0; }
+  to { width: 100%; }
+}
