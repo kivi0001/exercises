@@ -4,7 +4,7 @@ body{
 }
 
 header{
-    margin: 5em;
+    margin: 3em 0em 2em 0em;
     color: rgb(6, 69, 6);
     font-weight: bold;
     font-size: 48px;
@@ -12,10 +12,11 @@ header{
 
 main{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-div{
+.progress-div{
     position: relative;
     overflow: hidden;
     background: #f3efe6;
@@ -37,4 +38,57 @@ span{
 @keyframes animation{
     from { width: 0; }
   to { width: 100%; }
+}
+
+p{
+    font-size: 24px;
+    font-family: monospace;
+}
+
+.message-on-end{
+    margin: 4em;
+    display: none;
+}
+
+.message-on-end-show{
+    display: block;
+}
+
+button{
+    padding: 1em 4em;
+    margin: 1em;
+    color: #f3efe6;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background-color: rgb(100, 18, 79);
+    border-radius: 10px;
+}
+
+button:hover{
+    background-color: rgb(209, 114, 200);
+    color: black;
+    cursor: pointer;
+}
+
+.cry-image{
+    display: none;
+}
+
+.celebrate-image{
+    display: none;
+}
+
+.show-image{
+    display: block;
+}
+
+.show-img-div{
+    display: flex;
+}
+
+.show-img-div img{
+    max-width: 400px;
+    object-fit: cover;
+    margin: 1em;
 }
