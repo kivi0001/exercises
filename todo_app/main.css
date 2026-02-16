@@ -7,3 +7,7 @@
 .show-section{
     display: block;
 }
+
+body{
+    display: flex;
+}
