@@ -1,0 +1,9 @@
+/* hidden to-do section */
+
+.todo-section{
+    display: none;
+}
+
+.show-section{
+    display: block;
+}
