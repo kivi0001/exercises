@@ -75,7 +75,7 @@ toDoBtn.addEventListener("click", submitTask);
 //opret tasks i listen
 function submitTask(){
     if (!currentList) {return;}
-    const toDoObj = {text:toDoText.value, isDone:false, id:self.crypto.randomUUID()}
+    const toDoObj = {text:toDoText.value, isDone:false, id:self.crypto.randomUUID(), star:false}
     currentList.taskArr.push(toDoObj);
     toDoText.value = "";
     showTaskArr(currentList.taskArr);
@@ -89,16 +89,41 @@ function showTaskArr(array){
         doneContainer.innerHTML = "";
         array.forEach(item=>{
            const li = document.createElement("li");
-    li.innerHTML = `<h4>${item.text}</h4><input type="checkbox" id="checkbox-${item.id}" ${item.isDone?"checked":""} />`;
+    li.innerHTML = `<input type="checkbox" id="checkbox-${item.id}" ${item.isDone?"checked":""} /><h4>${item.text}</h4><p class="star" data-id="${item.id}">` + (item.star ? '⭐' : '✩') + `</p>`;
+    
     const checkbox = li.querySelector(`#checkbox-${item.id}`);
+    const starBtn = li.querySelector(".star");
+
     checkbox.addEventListener("change", () => {
       item.isDone = checkbox.checked;
       showTaskArr(array);
       console.log("isDone", item.isDone)
     });
+
+    starBtn.addEventListener("click", () => {
+        item.star = !item.star;
+        showTaskArr(array);
+    })
+
+
     if (item.isDone) doneContainer.appendChild(li);
     else toDoContainer.appendChild(li);
         });
     }
 
-  
+/* function starColorChange(item){
+    const starElement = document.querySelector(li);
+    if(item.star === true){
+        starElement.innerHTML = `⭐`;
+    } else {
+        starElement.innerHTML = `✩`;
+    }
+}
+
+function clickStar(){
+    if(item.star === true){
+        item.star = false;
+    } else {
+        item.star = true;
+    }
+} */
