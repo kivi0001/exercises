@@ -11,6 +11,7 @@ const toDoContainer = document.querySelector(".todo-container");
 const toDoBtn = document.querySelector(".todo-button");
 
 const doneContainer = document.querySelector(".done-container");
+const deleteListBtn = document.querySelector(".delete-list-button");
 
 //tilføj focus
 toDoListText.focus();
@@ -99,3 +100,5 @@ function showTaskArr(array){
     else toDoContainer.appendChild(li);
         });
     }
+
+  
