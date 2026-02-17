@@ -10,17 +10,22 @@
   <body>
     <header></header>
     <main>
-      <section>
+      <section class="todo-list-section">
         <input type="text" name="input-text" id="todolist-text" />
         <button class="todo-list-button">Add todolist</button>
         <ul class="todolist-container"></ul>
-        <ul class="done-container"></ul>
       </section>
-      <section class="todo-section">
-        <h1 class="list-headline"></h1>
-        <input type="text" name="input-task-text" id="todo-text" />
-        <button class="todo-button">Add task</button>
-        <ul class="todo-container"></ul>
+      <section class="todo-tasks-and-done-section">
+        <div class="todo-div">
+          <h1 class="list-headline"></h1>
+          <input type="text" name="input-task-text" id="todo-text" />
+          <button class="todo-button">Add task</button>
+          <ul class="todo-container"></ul>
+        </div>
+        <div>
+          <h1>DONE!</h1>
+          <ul class="done-container"></ul>
+        </div>
       </section>
     </main>
     <footer></footer>
