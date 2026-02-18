@@ -120,8 +120,8 @@ function showTaskArr(array){
         doneContainer.innerHTML = "";
         array.forEach(item=>{
            const li = document.createElement("li");
-    li.innerHTML = `<input type="checkbox" id="checkbox-${item.id}" ${item.isDone?"checked":""} /><h4>${item.text}</h4><p class="star" data-action="sort" data-id="${item.id}">` + (item.star ? '⭐' : '✩') + `</p>`;
-    
+    li.innerHTML = `<div class="task-input-and-checkbox"><input type="checkbox" id="checkbox-${item.id}" ${item.isDone?"checked":""} /><h4>${item.text}</h4></div><p class="star" data-action="sort" data-id="${item.id}">` + (item.star ? '⭐' : '✩') + `</p>`;
+
     const checkbox = li.querySelector(`#checkbox-${item.id}`);
     const starBtn = li.querySelector(".star");
     
