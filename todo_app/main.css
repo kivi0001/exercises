@@ -1,4 +1,4 @@
-/* hidden to-do section */
+/* JavaScript hidden sections and buttons */
 
 .todo-tasks-and-done-section{
     display: none;
@@ -24,12 +24,223 @@
     display: block;
 }
 
-
-body{
-    display: flex;
-}
-
 .selected {
   background-color: #f0f0f0;
   border: 2px solid #333;
+}
+
+/* Generel styling */
+
+body{
+    background-color: #66809D;
+}
+
+header{
+    padding: 2em;
+    text-align: center;
+}
+h1{
+    color: white;
+    font-size: 52px;
+    letter-spacing: 5px;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 2em;
+    justify-content: center;
+    padding: 0em 2em;
+}
+
+/* creation of todo lists - styling */
+
+.todo-list-section{
+    background-color: #D6EAFF;
+    padding: 2em;
+    display: flex;;
+    flex-direction: column;
+    height: 800px;
+}
+.list-input-and-btn{
+    background-color: #BAFFE7;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 0.5em;
+    padding: 0.5em;
+}
+
+.list-input-and-btn input{
+    border: none;
+    background-color: #DCFBF0;
+}
+
+.list-input-and-btn button{
+    background-color: #7ABF78;
+    color: black;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 2px;
+    width: 120px;
+    height: 40px;
+    align-self: center;
+    cursor: pointer;
+}
+
+.list-input-and-btn button:hover{
+    background-color: #1D631B;
+    color: white;
+}
+
+
+.todolist-container{
+    list-style: none;
+    padding: 0;
+}
+
+.todolist-container li h4{
+    margin: 0.5em;
+    max-width: 150px; 
+    font-weight: normal;   
+}
+
+.todolist-container li{
+    display: flex;
+    justify-content: space-between;
+    background-color: #F4F9FF;
+    margin: 1em 0em;
+    padding: 0.5em;
+}
+
+.todolist-container button{
+    background-color: #FFE1F2;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    width: 90px;
+    height: 40px;
+    align-self: center;
+    cursor: pointer;
+}
+
+.todolist-container button:hover{
+    background-color: #FF9FB3;
+}
+
+.delete-list-btn-div{
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.delete-list-btn-div button{
+    padding: 0.5em 5em;
+     background-color: #FF9FB3;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.delete-list-btn-div button:hover{
+    background-color: #F23359;
+    color: white;
+}
+
+
+/* ToDo list and tasks section - styling */
+
+.todo-section{
+    background-color: #FFF3FA;
+}
+
+.list-headline{
+    padding: 1em;
+    background-color: #FFE1F2;
+    margin: 1em;
+    font-size: 32px;
+    letter-spacing: 3px;
+}
+
+.todo-tasks-and-done-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2em;
+    height: 700px;
+}
+
+.todo-div{
+    padding: 0em 0em 0em 2em;
+}
+
+.todo-div h3{
+    letter-spacing: 1px;
+}
+
+.task-input-and-btn-div{
+    background-color: #BAFFE7;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 0.5em;
+    padding: 0.5em;
+}
+
+.task-input-and-btn-div input{
+    border: none;
+    background-color: #DCFBF0;
+}
+
+.task-input-and-btn-div button{
+    background-color: #7ABF78;
+    color: black;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 2px;
+    width: 120px;
+    height: 40px;
+    align-self: center;
+    cursor: pointer;
+}
+
+.task-input-and-btn-div button:hover{
+    background-color: #1D631B;
+    color: white;
+}
+
+.sort-btn-div{
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 2em;
+    margin-top: 2em;
+}
+
+.sort-btn-div button{
+    background-color: #7E3E67;
+    color: white;
+    width: 120px;
+    height: 35px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 20px;
+    border: none;
+    align-self: center;
+    cursor: pointer;
+}
+
+.sort-btn-div button:hover{
+    background-color: #D740A2;
+}
+
+.done-div{
+    background-color: white;
+    padding: 0em 2em;
+    margin: 0em 2em 2em 0em;
+}
+
+.done-div h3{
+    letter-spacing: 3px;
 }

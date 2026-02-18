@@ -8,38 +8,46 @@
     <title>ToDoApp</title>
   </head>
   <body>
-    <header></header>
+    <header>
+      <h1>ToDo list creator</h1>
+    </header>
     <main>
       <section class="todo-list-section">
-        <input type="text" name="input-text" id="todolist-text" />
-        <button class="todo-list-button">Add todolist</button>
+        <h2>ToDo lists</h2>
+        <div class="list-input-and-btn">
+          <input type="text" name="input-text" id="todolist-text" />
+          <button class="todo-list-button">Add todolist</button>
+        </div>
         <ul class="todolist-container"></ul>
         <div class="delete-list-btn-div">
           <button class="delete-list-btn"></button>
         </div>
       </section>
-      <section class="todo-tasks-and-done-section">
-        <div class="todo-div">
-          <div class="headline-and-delete">
-            <h1 class="list-headline"></h1>
-          </div>
-          <div class="sort-btn-div">
-            <h3>Sort by:</h3>
-            <button class="sort-btn">Priority ⭐</button>
-          </div>
-          <div class="task-list-div">
-            <input type="text" name="input-task-text" id="todo-text" />
-            <button class="todo-button">Add task</button>
-            <ul class="todo-container"></ul>
-            <div class="delete-task-btn-div">
-              <button class="delete-task-btn"></button>
+      <section class="todo-section">
+        <h2 class="list-headline"></h2>
+        <section class="todo-tasks-and-done-section">
+          <div class="todo-div">
+            <h3>Yet to be completed...</h3>
+            <div class="task-list-div">
+              <div class="task-input-and-btn-div">
+                <input type="text" name="input-task-text" id="todo-text" />
+                <button class="todo-button">Add task</button>
+              </div>
+              <div class="sort-btn-div">
+                <h4>Sort by:</h4>
+                <button class="sort-btn">Priority ⭐</button>
+              </div>
+              <ul class="todo-container"></ul>
+              <div class="delete-task-btn-div">
+                <button class="delete-task-btn"></button>
+              </div>
             </div>
           </div>
-        </div>
-        <div>
-          <h2>DONE!</h2>
-          <ul class="done-container"></ul>
-        </div>
+          <div class="done-div">
+            <h3>DONE!</h3>
+            <ul class="done-container"></ul>
+          </div>
+        </section>
       </section>
     </main>
     <footer></footer>
