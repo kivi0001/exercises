@@ -1,7 +1,7 @@
 const toDoListText = document.querySelector("#todolist-text");
 const toDoListBtn = document.querySelector(".todo-list-button");
 const toDoListContainer = document.querySelector(".todolist-container");
-const toDoListArr = [];
+const toDoListArr = JSON.parse(localStorage.getItem("toDoLists")) || [];
 
 const toDoArr = [];
 const toDoSection = document.querySelector(".todo-tasks-and-done-section");
@@ -29,6 +29,7 @@ toDoListBtn.addEventListener("click", submitToDoList);
 function submitToDoList(){
     const toDoListObject = {text:toDoListText.value, done:false, id:self.crypto.randomUUID(), taskArr:[]}
     toDoListArr.push(toDoListObject);
+    localStorage.setItem("toDoLists", JSON.stringify(toDoListArr));
     console.log("toDoListArr:", toDoListArr);
     showTaskListArr();
 }
@@ -77,6 +78,7 @@ function submitTask(){
     if (!currentList) {return;}
     const toDoObj = {text:toDoText.value, isDone:false, id:self.crypto.randomUUID(), star:false}
     currentList.taskArr.push(toDoObj);
+    localStorage.setItem("toDoLists", JSON.stringify(toDoListArr));
     toDoText.value = "";
     showTaskArr(currentList.taskArr);
     
@@ -96,12 +98,14 @@ function showTaskArr(array){
 
     checkbox.addEventListener("change", () => {
       item.isDone = checkbox.checked;
+      localStorage.setItem("toDoLists", JSON.stringify(toDoListArr));
       showTaskArr(array);
       console.log("isDone", item.isDone)
     });
 
     starBtn.addEventListener("click", () => {
         item.star = !item.star;
+        localStorage.setItem("toDoLists", JSON.stringify(toDoListArr));
         showTaskArr(array);
     })
 
@@ -111,19 +115,8 @@ function showTaskArr(array){
         });
     }
 
-/* function starColorChange(item){
-    const starElement = document.querySelector(li);
-    if(item.star === true){
-        starElement.innerHTML = `⭐`;
-    } else {
-        starElement.innerHTML = `✩`;
-    }
-}
-
-function clickStar(){
-    if(item.star === true){
-        item.star = false;
-    } else {
-        item.star = true;
-    }
-} */
+    showTaskListArr();
+    // FUNKTIONER DER MANGLER:
+    // 1. at kunne slette opgaver og lister
+    // 2. sortering
+    // 3. LocalStorage funktion
