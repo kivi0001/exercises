@@ -91,7 +91,7 @@ function showTaskArr(array){
         doneContainer.innerHTML = "";
         array.forEach(item=>{
            const li = document.createElement("li");
-    li.innerHTML = `<input type="checkbox" id="checkbox-${item.id}" ${item.isDone?"checked":""} /><h4>${item.text}</h4><p class="star" data-id="${item.id}">` + (item.star ? '⭐' : '✩') + `</p>`;
+    li.innerHTML = `<input type="checkbox" id="checkbox-${item.id}" ${item.isDone?"checked":""} /><h4>${item.text}</h4><p class="star" data-action="sort" data-sort-direction="asc" data-id="${item.id}">` + (item.star ? '⭐' : '✩') + `</p>`;
     
     const checkbox = li.querySelector(`#checkbox-${item.id}`);
     const starBtn = li.querySelector(".star");
@@ -115,8 +115,20 @@ function showTaskArr(array){
         });
     }
 
+    const sortBtn = document.querySelector(".sort-btn");
+    sortBtn.addEventListener("click", sortByPriority);
+
+    function sortByPriority(){
+        if (!currentList) return;
+        currentList.taskArr.sort((a, b) => {
+            if (a.star === b.star) return 0;
+            return a.star ? -1 : 1;
+        });
+        localStorage.setItem("toDoLists", JSON.stringify(toDoListArr));
+        showTaskArr(currentList.taskArr);
+    }
+    
+
     showTaskListArr();
     // FUNKTIONER DER MANGLER:
     // 1. at kunne slette opgaver og lister
-    // 2. sortering
-    // 3. LocalStorage funktion
