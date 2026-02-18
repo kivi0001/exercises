@@ -31,17 +31,29 @@
 
 /* Generel styling */
 
+@font-face {
+    font-family: 'jaro';
+    src: url('font/Jaro/Jaro-Regular-VariableFont_opsz.ttf');
+}
+
+@font-face {
+    font-family: 'inconsolata';
+    src: url('font/Inconsolata/Inconsolata-VariableFont_wdth\,wght.ttf');
+}
+
 body{
     background-color: #66809D;
 }
 
 header{
-    padding: 2em;
+    padding: 5px;
     text-align: center;
 }
 h1{
+    font-family: jaro;
     color: white;
-    font-size: 52px;
+    font-size: 64px;
+    font-weight: lighter;
     letter-spacing: 5px;
 }
 
@@ -73,6 +85,9 @@ main{
 .list-input-and-btn input{
     border: none;
     background-color: #DCFBF0;
+    min-width: 200px;
+    font-family: inconsolata;
+    font-size: 16px;
 }
 
 .list-input-and-btn button{
@@ -102,7 +117,8 @@ main{
 .todolist-container li h4{
     margin: 0.5em;
     max-width: 150px; 
-    font-weight: normal;   
+    font-weight: normal;  
+    font-family: inconsolata; 
 }
 
 .todolist-container li{

@@ -185,4 +185,11 @@ function showTaskArr(array){
 
 
     // FUNKTIONER DER MANGLER:
-    // 1. at kunne slette opgaver og lister
+    // 1. advarsler eller animationer:
+    // advarsel: "er du sikker?"" når man vil slette en liste eller task
+    // lille animation når man har udført en task
+
+    // Andet:
+    // select fokus på liste elementer
+    // kategorier? med drag and drop funktion
+    // font: Jaro
