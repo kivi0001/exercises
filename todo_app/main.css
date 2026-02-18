@@ -8,6 +8,28 @@
     display: block;
 }
 
+.delete-list-btn-div{
+    display: none;
+}
+
+.show-delete-list-btn-div{
+    display: block;
+}
+
+.delete-task-btn-div{
+    display: none;
+}
+
+.show-delete-task-btn-div{
+    display: block;
+}
+
+
 body{
     display: flex;
+}
+
+.selected {
+  background-color: #f0f0f0;
+  border: 2px solid #333;
 }

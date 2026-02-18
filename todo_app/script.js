@@ -11,7 +11,9 @@ const toDoContainer = document.querySelector(".todo-container");
 const toDoBtn = document.querySelector(".todo-button");
 
 const doneContainer = document.querySelector(".done-container");
+const deleteListBtnDiv = document.querySelector(".delete-list-btn-div");
 const deleteListBtn = document.querySelector(".delete-list-btn");
+const deleteTaskBtnDiv = document.querySelector(".delete-task-btn-div");
 const deleteTaskBtn = document.querySelector(".delete-task-btn");
 
 //tilføj focus
@@ -35,10 +37,6 @@ function submitToDoList(){
     showTaskListArr();
 }
 
-// senere funktion til filtrering og sortering
-function filterAndSortTaskArr(){
-    showTaskListArr();
-}
 
 // funktion til at tilføje elementer til liste i browser
 function showTaskListArr(){
@@ -54,13 +52,43 @@ function showTaskListArr(){
             showListSection(element)
             
         })
+
+        //eventlistener på show-list knappen, som kalder på funktionen der viser slet-liste knappen
+        li.querySelector("#show-list").addEventListener("click", ()=>{
+            showDeleteBtn()
+            console.log("vis det nuuu")
+        })
         
+        // function til at vise og sætte tekst i slet-liste-knappen
+        function showDeleteBtn(){
+            deleteListBtnDiv.classList.add("show-delete-list-btn-div");
+            deleteListBtn.innerHTML = `Delete '${element.text}' 🗑 `;
+        }
+
         toDoListContainer.appendChild(li)
-        // lav liste element, og tag delene for task-array og for hver af dem lav et element til html, og en knap med stjerne/select/tick
-        // en knap som laver "done" om til "true"
     })
     
 }
+
+deleteListBtn.addEventListener("click", deleteList);
+
+function deleteList(){
+    if (!currentList) return;
+    const listToBeDeleted = toDoListArr.findIndex(list => list.id === currentList.id);
+    if (listToBeDeleted > -1){
+    toDoListArr.splice(listToBeDeleted, 1);
+    localStorage.setItem("toDoLists", JSON.stringify(toDoListArr));
+    }
+    currentList = null;
+    toDoSection.classList.remove("show-section");
+    listHeadline.innerText = "";
+    toDoContainer.innerHTML = "";
+    doneContainer.innerHTML = "";
+    deleteListBtnDiv.classList.remove("show-delete-list-btn-div");
+    showTaskListArr();
+
+}
+
 
 let currentList = null;
 
@@ -96,6 +124,23 @@ function showTaskArr(array){
     
     const checkbox = li.querySelector(`#checkbox-${item.id}`);
     const starBtn = li.querySelector(".star");
+    
+    li.addEventListener("click", (evt) => {
+        if(evt.target === checkbox || evt.target === starBtn) return;
+
+        document.querySelectorAll(".todo-container li, .done-container li").forEach(elm => elm.classList.remove("selected"));
+        li.classList.add("selected");
+
+        deleteTaskBtnDiv.classList.add("show-delete-task-btn-div");
+        deleteTaskBtn.innerHTML = `Delete '${item.text}' 🗑 `;
+        deleteTaskBtn.onclick = () => {
+        const idx = array.findIndex(t => t.id === item.id);
+        if (idx > -1) array.splice(idx, 1);
+        localStorage.setItem("toDoLists", JSON.stringify(toDoListArr));
+        showTaskArr(array);
+        };
+
+    });
 
 // checkbox bliver tikket af
     checkbox.addEventListener("change", () => {
@@ -116,6 +161,7 @@ function showTaskArr(array){
     if (item.isDone) doneContainer.appendChild(li);
     else toDoContainer.appendChild(li);
         });
+        
     }
 
 // eventlistener på sorterings knap 
@@ -131,11 +177,12 @@ function showTaskArr(array){
         });
         localStorage.setItem("toDoLists", JSON.stringify(toDoListArr));
         showTaskArr(currentList.taskArr);
+
     }
     
 
     showTaskListArr();
 
-    
+
     // FUNKTIONER DER MANGLER:
     // 1. at kunne slette opgaver og lister
