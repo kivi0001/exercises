@@ -11,7 +11,8 @@ const toDoContainer = document.querySelector(".todo-container");
 const toDoBtn = document.querySelector(".todo-button");
 
 const doneContainer = document.querySelector(".done-container");
-const deleteListBtn = document.querySelector(".delete-list-button");
+const deleteListBtn = document.querySelector(".delete-list-btn");
+const deleteTaskBtn = document.querySelector(".delete-task-btn");
 
 //tilføj focus
 toDoListText.focus();
@@ -91,11 +92,12 @@ function showTaskArr(array){
         doneContainer.innerHTML = "";
         array.forEach(item=>{
            const li = document.createElement("li");
-    li.innerHTML = `<input type="checkbox" id="checkbox-${item.id}" ${item.isDone?"checked":""} /><h4>${item.text}</h4><p class="star" data-action="sort" data-sort-direction="asc" data-id="${item.id}">` + (item.star ? '⭐' : '✩') + `</p>`;
+    li.innerHTML = `<input type="checkbox" id="checkbox-${item.id}" ${item.isDone?"checked":""} /><h4>${item.text}</h4><p class="star" data-action="sort" data-id="${item.id}">` + (item.star ? '⭐' : '✩') + `</p>`;
     
     const checkbox = li.querySelector(`#checkbox-${item.id}`);
     const starBtn = li.querySelector(".star");
 
+// checkbox bliver tikket af
     checkbox.addEventListener("change", () => {
       item.isDone = checkbox.checked;
       localStorage.setItem("toDoLists", JSON.stringify(toDoListArr));
@@ -103,21 +105,24 @@ function showTaskArr(array){
       console.log("isDone", item.isDone)
     });
 
+    // Tilføj ændring til stjerne element (outline/yellow)
     starBtn.addEventListener("click", () => {
         item.star = !item.star;
         localStorage.setItem("toDoLists", JSON.stringify(toDoListArr));
         showTaskArr(array);
     })
 
-
+    // ryk task til "done-section" hvis checkbox er tikket af, ellers tilføj den til task-listen
     if (item.isDone) doneContainer.appendChild(li);
     else toDoContainer.appendChild(li);
         });
     }
 
+// eventlistener på sorterings knap 
     const sortBtn = document.querySelector(".sort-btn");
     sortBtn.addEventListener("click", sortByPriority);
 
+// funktion der sorterer efter om stjerne er outlined eller yellow
     function sortByPriority(){
         if (!currentList) return;
         currentList.taskArr.sort((a, b) => {
@@ -130,5 +135,7 @@ function showTaskArr(array){
     
 
     showTaskListArr();
+
+    
     // FUNKTIONER DER MANGLER:
     // 1. at kunne slette opgaver og lister
