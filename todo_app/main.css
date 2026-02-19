@@ -290,7 +290,7 @@ main{
     padding: 0.5em;
 }
 
-.done-container li,
+.done-container li:hover,
 .todo-container li:hover{
     background-color: #D4DEEA;
 }

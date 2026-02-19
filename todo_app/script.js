@@ -16,6 +16,9 @@ const deleteListBtn = document.querySelector(".delete-list-btn");
 const deleteTaskBtnDiv = document.querySelector(".delete-task-btn-div");
 const deleteTaskBtn = document.querySelector(".delete-task-btn");
 
+let selectedList = null;
+let currentList = null;
+
 //tilføj focus
 toDoListText.focus();
 
@@ -33,6 +36,7 @@ function submitToDoList(){
     const toDoListObject = {text:toDoListText.value, done:false, id:self.crypto.randomUUID(), taskArr:[]}
     toDoListArr.push(toDoListObject);
     localStorage.setItem("toDoLists", JSON.stringify(toDoListArr));
+    toDoListText.value = "";
     console.log("toDoListArr:", toDoListArr);
     showTaskListArr();
 }
@@ -54,9 +58,13 @@ function showTaskListArr(){
         })
 
         //eventlistener på show-list knappen, som kalder på funktionen der viser slet-liste knappen
-        li.querySelector("#show-list").addEventListener("click", ()=>{
+        li.addEventListener("click", (evt)=>{
+            if (evt.target === li.querySelector("#show-list")) return;
+            document.querySelectorAll(".todolist-container li").forEach(elm => elm.classList.remove("selected"));
+            li.classList.add("selected");
+            selectedList = element;
             showDeleteBtn()
-            console.log("vis det nuuu")
+
         })
         
         // function til at vise og sætte tekst i slet-liste-knappen
@@ -70,16 +78,18 @@ function showTaskListArr(){
     
 }
 
+
+
 deleteListBtn.addEventListener("click", deleteList);
 
 function deleteList(){
-    if (!currentList) return;
-    const listToBeDeleted = toDoListArr.findIndex(list => list.id === currentList.id);
+    if (!selectedList) return;
+    const listToBeDeleted = toDoListArr.findIndex(list => list.id === selectedList.id);
     if (listToBeDeleted > -1){
     toDoListArr.splice(listToBeDeleted, 1);
     localStorage.setItem("toDoLists", JSON.stringify(toDoListArr));
     }
-    currentList = null;
+    selectedList = null;
     toDoSection.classList.remove("show-section");
     listHeadline.innerText = "";
     toDoContainer.innerHTML = "";
@@ -90,7 +100,6 @@ function deleteList(){
 }
 
 
-let currentList = null;
 
 //Vis listen (funktion tilføjer class, som gør liste-sektion synlig)
 function showListSection(element){
@@ -110,6 +119,7 @@ function submitTask(){
     localStorage.setItem("toDoLists", JSON.stringify(toDoListArr));
     toDoText.value = "";
     showTaskArr(currentList.taskArr);
+    
     
 }
 
@@ -190,6 +200,4 @@ function showTaskArr(array){
     // lille animation når man har udført en task
 
     // Andet:
-    // select fokus på liste elementer
     // kategorier? med drag and drop funktion
-    // font: Jaro
