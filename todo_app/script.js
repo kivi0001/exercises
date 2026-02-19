@@ -3,7 +3,7 @@ const toDoListBtn = document.querySelector(".todo-list-button");
 const toDoListContainer = document.querySelector(".todolist-container");
 const toDoListArr = JSON.parse(localStorage.getItem("toDoLists")) || [];
 
-const toDoArr = [];
+/* const toDoArr = []; */
 const toDoSection = document.querySelector(".todo-tasks-and-done-section");
 const listHeadline = document.querySelector(".list-headline");
 const toDoText = document.querySelector("#todo-text");
@@ -49,8 +49,7 @@ function submitToDoList(){
 function showTaskListArr(){
     toDoListContainer.innerHTML="";
     toDoListArr.forEach(element=>{
-        // toDoListContainer.innerHTML += `<li data-id="">${element.text}</li><button id="show-list">Show list</button>`;
-        const li =document.createElement("li")
+        const li = document.createElement("li")
         li.innerHTML=`<h4>${element.text}</h4><button id="show-list">Show list</button>`
         li.querySelector("#show-list").addEventListener("click",()=>{
             
@@ -212,7 +211,6 @@ function showTaskArr(array){
 
     // FUNKTIONER DER MANGLER:
     // 1. advarsler eller animationer:
-    // advarsel: "er du sikker?"" når man vil slette en liste eller task
     // lille animation når man har udført en task
 
     // Andet:
