@@ -13,7 +13,10 @@ const toDoBtn = document.querySelector(".todo-button");
 const doneContainer = document.querySelector(".done-container");
 const deleteListBtnDiv = document.querySelector(".delete-list-btn-div");
 const deleteListBtn = document.querySelector(".delete-list-btn");
+
 const deleteTaskBtnDiv = document.querySelector(".delete-task-btn-div");
+const btnYes = document.querySelector(".btn-yes");
+const btnNo = document.querySelector(".btn-no");
 const deleteTaskBtn = document.querySelector(".delete-task-btn");
 
 let selectedList = null;
@@ -143,13 +146,26 @@ function showTaskArr(array){
 
         deleteTaskBtnDiv.classList.add("show-delete-task-btn-div");
         deleteTaskBtn.innerHTML = `Delete '${item.text}' 🗑 `;
-        deleteTaskBtn.onclick = () => {
+
+        deleteTaskBtn.addEventListener("click", function () {
+            deleteTaskBtnDiv.classList.add("open");
+        });
+
+        btnYes.addEventListener("click", function () {
+            deleteTaskBtnDiv.classList.remove("open");
+        });
+
+        btnNo.addEventListener("click", function () {
+            deleteTaskBtnDiv.classList.remove("open");
+        });
+
+        btnYes.onclick = () => {
         const idx = array.findIndex(t => t.id === item.id);
         if (idx > -1) array.splice(idx, 1);
         localStorage.setItem("toDoLists", JSON.stringify(toDoListArr));
         showTaskArr(array);
         };
-
+        
     });
 
 // checkbox bliver tikket af
